@@ -50,7 +50,7 @@ public class SignupDoubleOptIn {
                 String emailData = softSheet.getRow(i).getCell(1).getStringCellValue();
                 driver.findElement(By.cssSelector("#EMAIL")).sendKeys(emailData);
                 driver.findElement(By.cssSelector(".checkbox.checkbox_tick_positive")).click();
-                driver.findElement(By.cssSelector("button[type='submit'")).click();
+                //driver.findElement(By.cssSelector("button[type='submit'")).click();
                 Thread.sleep(3000);
                 driver.quit();
             }
