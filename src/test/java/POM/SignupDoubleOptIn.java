@@ -8,6 +8,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,7 +37,13 @@ public class SignupDoubleOptIn {
         int rowCount = softSheet.getLastRowNum() - softSheet.getFirstRowNum();  //Find number of rows in excel file
         for (int i = 0; i < rowCount + 1; i++) {
 
-            WebDriver driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            options.addArguments("--headless");
+            capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+            options.merge(capabilities);
+
+            WebDriver driver = new ChromeDriver(options);
 //            driver.navigate().to(bundle.getString("url"));
             driver.navigate().to("http://softwaredevx.co.in/sign-up/");
             // driver.manage().window().maximize();
