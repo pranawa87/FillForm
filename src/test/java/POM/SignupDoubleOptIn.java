@@ -9,7 +9,8 @@ public class SignupDoubleOptIn {
 
     public void excelReadFillForm(String filePath, String fileName, String sheetName) throws IOException, InterruptedException {
         WebDriver driver = new ChromeDriver();
-        driver.navigate().to("www.google.com");
+        driver.navigate().to("https://www.google.com");
+        driver.quit();
 
 
 
