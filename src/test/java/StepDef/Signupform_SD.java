@@ -12,7 +12,7 @@ public class Signupform_SD {
 	public void user_launch_open_signup_form_and_submit_double_opt_in_sign_form() throws Throwable {
 		SignupDoubleOptIn form = new SignupDoubleOptIn();
 		String filePath = System.getProperty("user.dir")+"/src/Properties file";
-		form.excelReadFillForm();
+		form.excelReadFillForm(filePath, "/testdata.xlsx", "Sheet1");
 	}
 
 
