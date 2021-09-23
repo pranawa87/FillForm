@@ -45,14 +45,14 @@ public class SignupDoubleOptIn {
 
             WebDriver driver = new ChromeDriver(options);
 //            driver.navigate().to(bundle.getString("url"));
-            driver.navigate().to("http://softwaredevx.co.in/sign-up/");
+            driver.navigate().to("https://www.softwaredevx.in/newsletter/");
             // driver.manage().window().maximize();
             driver.switchTo().frame(0);
             int cellcount = softSheet.getRow(i).getLastCellNum();
             //System.out.println("Row" + i + " data is :");
             Row row = softSheet.getRow(i);
             String companyName = softSheet.getRow(i).getCell(0).getStringCellValue();
-            driver.findElement(By.cssSelector("#COMPANYNAME")).sendKeys(companyName);
+            driver.findElement(By.cssSelector("#FIRSTNAME")).sendKeys(companyName);
             System.out.print("Entered Company Name: " + companyName);
             for (int j = 1; j < cellcount; j++) {
                 String emailData = softSheet.getRow(i).getCell(1).getStringCellValue();

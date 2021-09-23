@@ -14,8 +14,8 @@ public class Signupform_SD {
 //		System.out.println("File will be here :-> "+System.getProperty("user.dir"));
 //		String filePath = System.getProperty("user.dir")+"/src/test/java/Properties_file";
 		System.out.println("Entered path: ");
-		String filePath = "/var/lib/test_dir";
-		form.excelReadFillForm(filePath, "/testdata.xlsx", "Sheet1");
+		String filePath = "/var/lib/DevIndiaData";
+		form.excelReadFillForm(filePath, "/dataFile.xlsx", "Sheet1");
 	}
 
 
