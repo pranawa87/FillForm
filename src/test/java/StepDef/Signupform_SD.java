@@ -13,9 +13,19 @@ public class Signupform_SD {
 		SignupDoubleOptIn form = new SignupDoubleOptIn();
 //		System.out.println("File will be here :-> "+System.getProperty("user.dir"));
 //		String filePath = System.getProperty("user.dir")+"/src/test/java/Properties_file";
-		System.out.println("Entered path: ");
-		String filePath = "/var/lib/test_dir";
-		form.excelReadFillForm(filePath, "/testdata.xlsx", "Sheet1");
+
+		/*String filePathRLocal = System.getProperty("user.dir")+"/src/test/java/Properties_file/";
+		String fileNameLocal= "testdata.xlsx";
+		String fileSheetNameLocal = "Sheet1";
+		System.out.println("Entered Full File Name with Path In LOCAL Run :->  "+filePathRLocal+fileNameLocal);
+		form.excelReadFillForm(filePathRLocal, fileNameLocal, fileSheetNameLocal);*/
+
+		String filePathRemote = "/var/lib/test_dir/";
+		String fileNameRemote = "coFileJenkins.xlsx";
+		String fileSheetNameRemote = "Sheet1";
+		System.out.println("Entered Full File Name with Path In Remote Run :->  "+filePathRemote+fileNameRemote);
+		form.excelReadFillForm(filePathRemote, fileNameRemote, fileSheetNameRemote);
+
 	}
 
 
