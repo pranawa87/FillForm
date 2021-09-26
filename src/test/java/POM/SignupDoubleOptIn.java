@@ -35,37 +35,41 @@ public class SignupDoubleOptIn {
 
         Sheet softSheet = softWorkbook.getSheet(sheetName);
         int rowCount = softSheet.getLastRowNum() - softSheet.getFirstRowNum();  //Find number of rows in excel file
+        ChromeOptions options = new ChromeOptions();
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        options.addArguments("--headless");
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        options.merge(capabilities);
+
+        WebDriver driver = new ChromeDriver(options);
         for (int i = 0; i < rowCount + 1; i++) {
-
-            ChromeOptions options = new ChromeOptions();
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            options.addArguments("--headless");
-            capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-            options.merge(capabilities);
-
-            WebDriver driver = new ChromeDriver(options);
 //            driver.navigate().to(bundle.getString("url"));
             driver.navigate().to("https://www.softwaredevx.in/newsletter/");
             // driver.manage().window().maximize();
             driver.switchTo().frame(0);
             int cellcount = softSheet.getRow(i).getLastCellNum();
-            //System.out.println("Row" + i + " data is :");
+
             Row row = softSheet.getRow(i);
             String companyName = softSheet.getRow(i).getCell(0).getStringCellValue();
             driver.findElement(By.cssSelector("#FIRSTNAME")).sendKeys(companyName);
-            System.out.print("Entered Company Name: " + companyName);
+            System.out.println("******************* Data Entry Begin *******************");
+            System.out.println("Entered DATA COUNT: -> " + i);
+
             for (int j = 1; j < cellcount; j++) {
                 String emailData = softSheet.getRow(i).getCell(1).getStringCellValue();
                 driver.findElement(By.cssSelector("#EMAIL")).sendKeys(emailData);
                 driver.findElement(By.cssSelector(".checkbox.checkbox_tick_positive")).click();
                 driver.findElement(By.cssSelector("button[type='submit'")).click();
                 Thread.sleep(3000);
-                driver.quit();
+                System.out.println("Entered Company Name:  " + companyName);
+                System.out.println("Entered Email data:  " + emailData);
+
+                System.out.println("******************* END - Data Entry  *******************");
             }
 
             System.out.println();
         }
-
+        driver.quit();
 
     }
         }
