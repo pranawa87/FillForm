@@ -60,7 +60,7 @@ public class SignupDoubleOptIn {
                 driver.findElement(By.cssSelector("#EMAIL")).sendKeys(emailData);
                 driver.findElement(By.cssSelector(".checkbox.checkbox_tick_positive")).click();
                 driver.findElement(By.cssSelector("button[type='submit'")).click();
-                Thread.sleep(1000);
+                Thread.sleep(10000);
                 System.out.println("Entered Company Name:  " + companyName);
                 System.out.println("Entered Email data:  " + emailData);
 
