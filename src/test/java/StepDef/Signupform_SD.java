@@ -35,7 +35,7 @@ public class Signupform_SD {
 
 		System.out.println("********************** IMPORTENT Entered File Name (India jenkins) ******************");
 
-		String filePathRemote = "/var/lib/test_dir/";
+		String filePathRemote = "/var/lib/DevIndiaData/";
 //		String fileNameRemote = name+".xlsx";
 		String fileNameRemote = "IndiaFileJenkins_" + currentDate_time + ".xlsx";
 		String fileSheetNameRemote = "Sheet1";
